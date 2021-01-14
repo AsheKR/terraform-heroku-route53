@@ -38,5 +38,5 @@ resource "aws_route53_record" "route53" {
 	name = var.subdomain_name
 	type = "CNAME"
 	ttl = "300"
-	records = ["${heroku_app.heroku_instance.heroku_hostname}"]
+	records = [format("%s.", heroku_app.heroku_instance.heroku_hostname)]
 }
